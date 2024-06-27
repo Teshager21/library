@@ -24,7 +24,11 @@ function Book(title,author, numberOfPages){
 const book_cards=document.querySelector('.book-cards');
 
 //add new book
-function addBooktoLibrary(){
+function addBooktoLibrary(book){
+    console.log('here the book is', book);
+    myLibrary.push(book);
+    updateDisplay();
+
 
 }
 const createCard=(title,author,numberOfPages)=>{
@@ -58,16 +62,31 @@ function displayBooks(){
         book_cards.appendChild(book_card);
     })
 }
+const updateDisplay=()=>{
+    book_cards.innerHTML='';
+    displayBooks();
+}
 displayBooks();
 //button to add new book
 //add a modal
 const dialog=document.getElementById('dialog');
 const showDialogBtn= document.querySelector('.new-book');
 const closeModal=document.querySelector('.close-modal');
+const confirmBtn=document.querySelector('#confirmBtn')
+const newAuthor= document.querySelector('#new-author')
+const newTitle=document.querySelector('#new-title');
+const newNumberOfPages=document.querySelector('#new-numberOfPages');
 showDialogBtn.addEventListener('click',()=>{dialog.showModal();});
 closeModal.addEventListener("click",(e)=>{
     e.preventDefault();
     dialog.close();
 });
+confirmBtn.addEventListener('click',(e)=>{
+    e.preventDefault();
+    const newBook=new Book(newTitle.value,newAuthor.value,newNumberOfPages.value);
+    addBooktoLibrary(newBook);
+    console.log(newAuthor.value,newTitle.value,newNumberOfPages.value, myLibrary);
+})
+
 //button to remove a specific book
 //toggle the books read status

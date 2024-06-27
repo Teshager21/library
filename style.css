@@ -29,7 +29,7 @@ aside h2{
 
 .container{
     display: grid;
-    grid-template-columns: 3fr minmax(200px,1fr);
+    /* grid-template-columns: 3fr minmax(200px,1fr); */
     align-content: start;
     align-items:start;
 }
