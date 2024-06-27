@@ -1,18 +1,18 @@
-const myLibrary=[
+let myLibrary=[
     {id:1,
         title:"Protocols: An Operating Manual for the Human Body ",
         author:" Andrew D. Huberman Ph.D.",
-        numberOfPages:"384 pages"
+        numberOfPages:384
     },
     {id:2,
         title:"The Housemaid Is Watching",
         author:"Freida McFadden",
-        numberOfPages:"400 pages"
+        numberOfPages:400
     },
     {id:3,
         title:"The Women: A Novel",
         author:"Kristin Hannah ",
-        numberOfPages:"480 pages"
+        numberOfPages:480
     }
 
 ];
@@ -22,7 +22,6 @@ function Book(title,author, numberOfPages){
     this.author=author;
     this.numberOfPages=numberOfPages;
     this.id=myLibrary.length+1;
-
 }
 
 const book_cards=document.querySelector('.book-cards');
@@ -32,8 +31,6 @@ function addBooktoLibrary(book){
     console.log('here the book is', book);
     myLibrary.push(book);
     updateDisplay();
-
-
 }
 const createCard=(id,title,author,numberOfPages)=>{
     const book_card=document.createElement('div');
@@ -47,7 +44,7 @@ const createCard=(id,title,author,numberOfPages)=>{
         book_title_El.classList.add('book-title');
         author_El.classList.add("author");
         number_Of_Pages_El.classList.add('numberOfPages')
-        // deleteBtn.classList.add('b')
+        deleteBtn.classList.add('delete-btn')
 //appending elements to the card
         book_card.appendChild(book_title_El);
         book_card.appendChild(author_El);
@@ -56,14 +53,16 @@ const createCard=(id,title,author,numberOfPages)=>{
 //populate with content
         book_title_El.textContent=title;
         author_El.textContent=author;
-        number_Of_Pages_El.textContent=numberOfPages;
+        number_Of_Pages_El.textContent='pages:'+ numberOfPages;
         deleteBtn.textContent='Delete';  
 //add identifier
       book_card.setAttribute('data-id',id)
-        
-
+//add event listeners
+deleteBtn.addEventListener('click',(e)=>{
+    myLibrary=myLibrary.filter(el=>el.id!==id);
+    updateDisplay();
+})
     return book_card;
-
 }
 function displayBooks(){
     myLibrary.map(book=>{
@@ -95,7 +94,5 @@ confirmBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     addBooktoLibrary( new Book(newTitle.value,newAuthor.value,newNumberOfPages.value));
 });
-
-//Delete a book
 
 //toggle the books read status
