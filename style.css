@@ -22,9 +22,9 @@ main{
     
 }
 
-aside h2{
-    padding: 1rem;
-
+button{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .container{
