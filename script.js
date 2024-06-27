@@ -16,7 +16,20 @@ let myLibrary=[
         author:"Kristin Hannah ",
         numberOfPages:480,
         read:false,
-    }
+    },
+    {id:4,
+        title:"White Fang",
+        author:"Jack London",
+        numberOfPages:180,
+        read:false,
+    },
+    {id:4,
+        title:"Seven Habits of Highly Effective People",
+        author:"Stephen R. Covey",
+        numberOfPages:280,
+        read:false,
+    },
+
 
 ];
 
@@ -64,7 +77,7 @@ const createCard=(id,title,author,numberOfPages,read)=>{
 //populate with content
         book_title_El.textContent=title;
         author_El.textContent=author;
-        number_Of_Pages_El.textContent='pages:'+ numberOfPages;
+        number_Of_Pages_El.textContent= numberOfPages+' pages';
         deleteBtn.textContent='Delete'; 
         readBtn.textContent= read?'UnRead':"Read"; 
 //add identifier
@@ -75,15 +88,11 @@ deleteBtn.addEventListener('click',(e)=>{
     updateDisplay();
 })
 readBtn.addEventListener('click',()=>{  //toggle the read status of a book
-    console.log('the index is:',myLibrary.indexOf(myLibrary[id])); 
     read?read=false:read=true;
-    console.log(myLibrary[id],id);
-    console.log(title,author,numberOfPages,read);
     updatedBook=new Book(title,author,numberOfPages,read);
     myLibrary=myLibrary.filter(el=>el.id!==id);
-    console.log('updatedbook',myLibrary);
     myLibrary.push(updatedBook);
-            updateDisplay();
+    updateDisplay();
 })
     return book_card;
 }

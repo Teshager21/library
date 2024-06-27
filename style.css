@@ -6,8 +6,6 @@
 
 body{
     display: grid;
-
-
 }
 
 header{
@@ -41,12 +39,10 @@ button{
 
 .container{
     display: grid;
-    /* grid-template-columns: 3fr minmax(200px,1fr); */
     align-content: start;
     align-items:start;
 }
 .book-container{
-    /* background-color:rgb(99,99,99,0.1); */
     padding: 1rem;
 }
 .book-cards{
@@ -59,6 +55,12 @@ button{
     gap: 1rem;
     grid-column: 1/span 1;
 }
+.raed{
+    background-color: rgb(0 0 0 / 55%);
+}
+.delete-btn{
+    background-color: tomato;
+}
 
 aside{
     grid-column: 2/span 1;
@@ -69,9 +71,18 @@ aside{
     min-height: 250px;
     padding: 1rem;
     border-radius: 0.5rem;
-    box-shadow: rgb(99,99,99,0.2) 0px 2px 8px 0px;
+    box-shadow: rgb(99,99,99,0.3) 0px 2px 8px 0px;
     display: grid;
     align-content: space-between;
+}
+
+.book-title{
+    font-size: 1rem;
+}
+
+.numberOfPages{
+    color:rgb(0 0 0 / 55%); 
+    font-style: italic;
 }
 
 .author{
@@ -83,14 +94,24 @@ aside{
 }
 
 dialog{
-    width:50%;
-    height:50%;
+    width:30%;
+    min-width:250px;
+    height:45%;
     margin:auto;
     border:none;
     border-radius: 0.5rem;
     box-shadow: rgb(99,99,99,0.2) 0px 2px 8px 0px;
+    padding: 1rem;
 }
-
+dialog form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem;
+}
+.modal-action{
+    margin: 1rem;
+}
 dialog[open]::backdrop {
     background-color: rgb(0 0 0 / 55%);
   }
