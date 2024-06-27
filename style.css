@@ -11,8 +11,14 @@ body{
 }
 
 header{
-    background-color: darkslateblue;
+    background-color: rgb(0 0 0 / 55%);
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem;
+    padding-left: 1rem;
+    padding-right: 3rem;
 }
 
 main{
@@ -25,6 +31,12 @@ main{
 button{
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background-color: #1992d4;
+    border-radius: 0.25rem;
+    color: #fff;
+    border:none;
 }
 
 .container{
@@ -34,7 +46,7 @@ button{
     align-items:start;
 }
 .book-container{
-    background-color:rgb(99,99,99,0.1);
+    /* background-color:rgb(99,99,99,0.1); */
     padding: 1rem;
 }
 .book-cards{
@@ -42,7 +54,7 @@ button{
     width: 100%;
     min-height: 100vh;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     align-items: start;
     gap: 1rem;
     grid-column: 1/span 1;
@@ -54,12 +66,20 @@ aside{
 
 .card{
     background-color: #fff;
-    min-height: 200px;
+    min-height: 250px;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: rgb(99,99,99,0.2) 0px 2px 8px 0px;
     display: grid;
     align-content: space-between;
+}
+
+.author{
+    color:rgb(0 0 0 / 55%);
+}
+
+.card-actions> button{
+   margin-left: 1rem;
 }
 
 dialog{

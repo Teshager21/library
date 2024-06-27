@@ -43,6 +43,7 @@ const createCard=(id,title,author,numberOfPages,read)=>{
     const book_title_El=document.createElement('h3');
     const author_El= document.createElement('p');
     const number_Of_Pages_El= document.createElement('p');
+    const card_actions=document.createElement('div')
     const deleteBtn=document.createElement('button');
     const readBtn=document.createElement('button');
 
@@ -52,12 +53,14 @@ const createCard=(id,title,author,numberOfPages,read)=>{
         author_El.classList.add("author");
         number_Of_Pages_El.classList.add('numberOfPages')
         deleteBtn.classList.add('delete-btn')
+        card_actions.classList.add('card-actions')
 //appending elements to the card
         book_card.appendChild(book_title_El);
         book_card.appendChild(author_El);
         book_card.appendChild(number_Of_Pages_El);
-        book_card.appendChild(deleteBtn);
-        book_card.appendChild(readBtn);
+        card_actions.appendChild(deleteBtn);
+        card_actions.appendChild(readBtn);
+        book_card.appendChild(card_actions);
 //populate with content
         book_title_El.textContent=title;
         author_El.textContent=author;
@@ -72,7 +75,6 @@ deleteBtn.addEventListener('click',(e)=>{
     updateDisplay();
 })
 readBtn.addEventListener('click',()=>{  //toggle the read status of a book
-    console.log('been here',read);
     console.log('the index is:',myLibrary.indexOf(myLibrary[id])); 
     read?read=false:read=true;
     console.log(myLibrary[id],id);
