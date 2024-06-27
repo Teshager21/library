@@ -65,6 +65,9 @@ const dialog=document.getElementById('dialog');
 const showDialogBtn= document.querySelector('.new-book');
 const closeModal=document.querySelector('.close-modal');
 showDialogBtn.addEventListener('click',()=>{dialog.showModal();});
-closeModal.addEventListener("click",()=>{dialog.close()});
+closeModal.addEventListener("click",(e)=>{
+    e.preventDefault();
+    dialog.close();
+});
 //button to remove a specific book
 //toggle the books read status

@@ -21,8 +21,32 @@
         </div>
     
         <dialog id="dialog">
-            Content here
-           <button class="close-modal">Close</button>
+            
+            <h4>Add New Book</h4>
+            <form action="">
+                <p>
+                    <label>
+                        Book Title: <input type="text" name="book-title" id="book-title">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Author: <input type="text" name="author" id="book-author">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Number of Pages: <input type="text" name="numberOfPages" id="numberOfPages">
+                    </label>
+                </p>
+
+                <div class="dialog-bar">
+                   
+                    <button class="close-modal" formmethod="dialog" value="cancel">Close</button>
+                    <button value="default" id="conformBtn">Add</button>
+                </div>
+            </form>
+          
         </dialog>
     </main>
    
