@@ -23,7 +23,7 @@ let myLibrary=[
         numberOfPages:180,
         read:false,
     },
-    {id:4,
+    {id:5,
         title:"Seven Habits of Highly Effective People",
         author:"Stephen R. Covey",
         numberOfPages:280,
@@ -39,15 +39,13 @@ function Book(title,author, numberOfPages,read){
     this.title=title;
     this.author=author;
     this.numberOfPages=numberOfPages;
-    this.read=read;
-    
+    this.read=read;   
 }
 
 const book_cards=document.querySelector('.book-cards');
 
 //add new book
 function addBooktoLibrary(book){
-    console.log('here the book is', book);
     myLibrary.push(book);
     updateDisplay();
 }
@@ -64,8 +62,9 @@ const createCard=(book)=>{
         book_card.classList.add('card');
         book_title_El.classList.add('book-title');
         author_El.classList.add("author");
-        number_Of_Pages_El.classList.add('numberOfPages')
-        deleteBtn.classList.add('delete-btn')
+        number_Of_Pages_El.classList.add('numberOfPages');
+        deleteBtn.classList.add('delete-btn');
+        if(read){readBtn.classList.add('read')}
         card_actions.classList.add('card-actions')
 //appending elements to the card
         book_card.appendChild(book_title_El);
@@ -83,24 +82,22 @@ const createCard=(book)=>{
 //add identifier
       book_card.setAttribute('data-id',id)
 //add event listeners
-deleteBtn.addEventListener('click',(e)=>{
+deleteBtn.addEventListener('click',(e)=>{  //delete a book
     myLibrary=myLibrary.filter(el=>el.id!==id);
     updateDisplay();
 })
+
 readBtn.addEventListener('click',()=>{  //toggle the read status of a book
-    let i= myLibrary.indexOf(book);
+    const i= myLibrary.indexOf(book);
     read?read=false:read=true;
     updatedBook=new Book(title,author,numberOfPages,read);
-    // myLibrary=myLibrary.filter(el=>el.id!==id);
-    // myLibrary.push(updatedBook);
     myLibrary[i]=updatedBook
-    updateDisplay();
+    document.querySelector(`[data-id='${id}'] .delete-btn`).classList.add('read');    updateDisplay();
 })
     return book_card;
 }
 function displayBooks(){
     myLibrary.map(book=>{
-        // const {id,title,author,numberOfPages,read}=book;
         const book_card=createCard(book);
         book_cards.appendChild(book_card);
     })
